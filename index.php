@@ -63,7 +63,7 @@
             <?php $sql = "SELECT * FROM `categories`";
 $result = mysqli_query($conn, $sql);
 while($row = mysqli_fetch_assoc($result)){
-    $cat_id = $row['category_id'];
+    $cat= $row['category_id'];
     $cat_name = $row['category_name'];
     $cat_desc = $row['category_description'];
 
@@ -79,7 +79,7 @@ echo '<div class="col-lg-4 col-md-6 col-sm-12">
                         <h5 class="card-title">'.htmlspecialchars($cat_name).'</h5>
                         <p class="card-text"> '.htmlspecialchars($cat_desc).'
                         </p>
-                        <a href="thread.php" class="btn btn-primary mt-2">View Thread</a>
+                        <a href="threadlist.php?cat_id='.urlencode($cat).'" class="btn btn-primary mt-2">View thread</a>
                     </div>
 
                 </div>
