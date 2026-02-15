@@ -1,0 +1,476 @@
+/* 
+ * Thread Discussion Page - Modern CSS Stylesheet
+ * Purple/Blue gradient theme with premium components
+ */
+
+/* ===============================================
+   IMPORTS
+   =============================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css');
+
+/* ===============================================
+   BASE STYLES
+   =============================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f8f9fd;
+    min-height: 100vh;
+}
+
+/* ===============================================
+   THREAD BANNER / JUMBOTRON
+   =============================================== */
+.bg-light.rounded-3 {
+    background: linear-gradient(135deg, #040404, #203a43,   #2c5364);
+    border-radius: 24px !important;
+    color: white !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.bg-light.rounded-3::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: float 20s ease-in-out infinite;
+}
+
+.bg-light.rounded-3::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: float 15s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -30px) scale(1.1); }
+}
+
+.bg-light.rounded-3 h1,
+.bg-light.rounded-3 p,
+.bg-light.rounded-3 .btn,
+.bg-light.rounded-3 form {
+    position: relative;
+    z-index: 2;
+}
+
+.bg-light.rounded-3 h1 {
+    color: white !important;
+    font-weight: 800;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+
+.bg-light.rounded-3 p {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-size: 1.125rem;
+    line-height: 1.8;
+}
+
+.display-5 {
+    font-size: 2.5rem !important;
+    font-weight: 900 !important;
+}
+
+/* ===============================================
+   REPLY FORM IN BANNER
+   =============================================== */
+.bg-light.rounded-3 form {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.bg-light.rounded-3 .form-group label {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.bg-light.rounded-3 .form-control {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    padding: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.bg-light.rounded-3 .form-control:focus {
+    background: white;
+    border-color: white;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+    outline: none;
+}
+
+.bg-light.rounded-3 .form-control::placeholder {
+    color: #718096;
+}
+
+.bg-light.rounded-3 textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+/* ===============================================
+   BUTTONS
+   =============================================== */
+.btn {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 0.75rem 2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+.bg-light.rounded-3 .btn-primary {
+    background: white;
+    color: #667eea;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.bg-light.rounded-3 .btn-primary:hover {
+    background: white;
+    color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
+/* ===============================================
+   ALERTS
+   =============================================== */
+.alert {
+    border-radius: 16px;
+    border: none;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    border-left: 4px solid #28a745;
+    color: #155724;
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+    border-left: 4px solid #17a2b8;
+    color: #0c5460;
+}
+
+.alert strong {
+    font-weight: 700;
+}
+
+/* ===============================================
+   REPLIES SECTION
+   =============================================== */
+.container.my-4 {
+    margin-top: 2.5rem !important;
+    margin-bottom: 2.5rem !important;
+}
+
+.container.my-4 > h4 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.container.my-4 > h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 70%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50px;
+}
+
+/* ===============================================
+   COMMENT CARDS
+   =============================================== */
+.card {
+    background: white;
+    border: 1px solid #e8ecf4;
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: height 0.3s ease;
+}
+
+.card:hover {
+    border-color: #667eea;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.12);
+    transform: translateY(-2px);
+}
+
+.card:hover::before {
+    height: 100%;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-body h6 {
+    color: #667eea;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-body h6::before {
+    content: '\F4CB';
+    font-family: 'bootstrap-icons';
+    font-size: 1.25rem;
+}
+
+.card-body p {
+    color: #2d3748;
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.card-body small {
+    color: #718096;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-body small::before {
+    content: '\F292';
+    font-family: 'bootstrap-icons';
+    font-size: 1rem;
+    color: #667eea;
+}
+
+/* ===============================================
+   CONTAINER SPACING
+   =============================================== */
+/* .container {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+} */
+
+.container.py-5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+.my-2 {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 2rem !important;
+}
+
+.mt-2 {
+    margin-top: 1rem !important;
+}
+
+/* ===============================================
+   FORM GROUP
+   =============================================== */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    outline: none;
+}
+
+textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+/* ===============================================
+   ANIMATIONS
+   =============================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.4s ease-out backwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.05s; }
+.card:nth-child(2) { animation-delay: 0.1s; }
+.card:nth-child(3) { animation-delay: 0.15s; }
+.card:nth-child(4) { animation-delay: 0.2s; }
+.card:nth-child(5) { animation-delay: 0.25s; }
+.card:nth-child(6) { animation-delay: 0.3s; }
+.card:nth-child(7) { animation-delay: 0.35s; }
+.card:nth-child(8) { animation-delay: 0.4s; }
+
+/* ===============================================
+   RESPONSIVE DESIGN
+   =============================================== */
+@media (max-width: 768px) {
+    .display-5 {
+        font-size: 2rem !important;
+    }
+    
+    .container.my-4 > h4 {
+        font-size: 1.5rem;
+    }
+    
+    .bg-light.rounded-3 form {
+        padding: 1.5rem;
+    }
+    
+    .btn {
+        padding: 0.6rem 1.5rem;
+    }
+    
+    .card-body {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .bg-light.rounded-3 {
+        border-radius: 16px !important;
+    }
+    
+    .bg-light.rounded-3 form {
+        padding: 1.25rem;
+    }
+    
+    .card {
+        border-radius: 12px;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .btn {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===============================================
+   EMPTY STATE
+   =============================================== */
+.alert-info {
+    text-align: center;
+    padding: 2rem 1.5rem;
+}
+
+.alert-info::before {
+    content: '\F431';
+    font-family: 'bootstrap-icons';
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+    color: #17a2b8;
+}
+
+/* ===============================================
+   TEXT UTILITIES
+   =============================================== */
+.text-primary {
+    color: #667eea !important;
+}
+
+.text-muted {
+    color: #718096 !important;
+}

@@ -1,0 +1,655 @@
+/* 
+ * =====================================================
+ * Idiscuss Forum - Landing Page Stylesheet
+ * Filename: landing-page.css
+ * Unique class names to avoid conflicts
+ * =====================================================
+ */
+
+/* ===============================================
+   IMPORTS
+   =============================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css');
+
+/* ===============================================
+   CSS VARIABLES
+   =============================================== */
+:root {
+    --landing-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --landing-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --landing-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --landing-bg: #f8f9fd;
+    --landing-text-dark: #2d3748;
+    --landing-text-light: #718096;
+    --landing-white: #ffffff;
+}
+
+/* ===============================================
+   BASE STYLES
+   =============================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--landing-bg);
+    overflow-x: hidden;
+}
+
+
+
+/* ===============================================
+   HERO SECTION - LANDING HERO
+   =============================================== */
+.landing-hero-section {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* Animated Background Circles */
+.landing-hero-section::before {
+    content: '';
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    top: -400px;
+    right: -200px;
+    animation: landing-float 20s ease-in-out infinite;
+}
+
+.landing-hero-section::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    bottom: -300px;
+    left: -150px;
+    animation: landing-float 15s ease-in-out infinite reverse;
+}
+
+@keyframes landing-float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        transform: translate(30px, -30px) rotate(120deg);
+    }
+    66% {
+        transform: translate(-20px, 20px) rotate(240deg);
+    }
+}
+
+.landing-hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+.landing-hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    animation: landing-slideDown 0.8s ease-out;
+}
+
+.landing-hero-title {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -2px;
+    animation: landing-slideLeft 0.8s ease-out 0.2s backwards;
+}
+
+.landing-hero-subtitle {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    opacity: 0.95;
+    margin-bottom: 2.5rem;
+    animation: landing-slideLeft 0.8s ease-out 0.4s backwards;
+}
+
+.landing-hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: landing-slideUp 0.8s ease-out 0.6s backwards;
+}
+
+.landing-btn-primary {
+    background: white;
+    color: #667eea;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.landing-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    color: #667eea;
+}
+
+.landing-btn-secondary {
+    background: transparent;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.landing-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-3px);
+    color: white;
+}
+
+.landing-hero-image {
+    position: relative;
+    z-index: 2;
+    animation: landing-slideRight 0.8s ease-out 0.4s backwards;
+}
+
+.landing-hero-image img {
+    width: 100%;
+    max-width: 600px;
+    filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.3));
+    animation: landing-floatImage 6s ease-in-out infinite;
+}
+
+@keyframes landing-floatImage {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* ===============================================
+   STATS SECTION - LANDING STATS
+   =============================================== */
+.landing-stats-wrapper {
+    background: white;
+    padding: 4rem 0;
+    margin-top: -3rem;
+    position: relative;
+    z-index: 3;
+    border-radius: 40px 40px 0 0;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.landing-stat-item {
+    text-align: center;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.landing-stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.landing-stat-icon-box {
+    width: 80px;
+    height: 80px;
+    background: var(--landing-primary);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 2rem;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.landing-stat-item:hover .landing-stat-icon-box {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.landing-stat-value {
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: var(--landing-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.landing-stat-description {
+    color: var(--landing-text-light);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* ===============================================
+   FEATURES SECTION - LANDING FEATURES
+   =============================================== */
+.landing-features-wrapper {
+    padding: 5rem 0;
+    background: var(--landing-bg);
+}
+
+.landing-section-heading {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.landing-section-label {
+    display: inline-block;
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.landing-section-main-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--landing-text-dark);
+    margin-bottom: 1rem;
+}
+
+.landing-section-description {
+    font-size: 1.1rem;
+    color: var(--landing-text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.landing-feature-box {
+    background: white;
+    border-radius: 24px;
+    padding: 2.5rem;
+    height: 100%;
+    border: 1px solid #e8ecf4;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.landing-feature-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--landing-primary);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.landing-feature-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+    border-color: transparent;
+}
+
+.landing-feature-box:hover::before {
+    transform: scaleX(1);
+}
+
+.landing-feature-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background: var(--landing-primary);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s ease;
+}
+
+.landing-feature-box:hover .landing-feature-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.landing-feature-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--landing-text-dark);
+    margin-bottom: 1rem;
+}
+
+.landing-feature-text {
+    color: var(--landing-text-light);
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+/* ===============================================
+   CATEGORIES SECTION - LANDING CATEGORIES
+   =============================================== */
+.landing-categories-wrapper {
+    padding: 5rem 0;
+    background: white;
+}
+
+.landing-category-box {
+    background: linear-gradient(135deg, #f8f9fd 0%, #ffffff 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    border: 2px solid #e8ecf4;
+    transition: all 0.4s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.landing-category-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--landing-primary);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.landing-category-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+    border-color: transparent;
+}
+
+.landing-category-box:hover::before {
+    opacity: 0.05;
+}
+
+.landing-category-emoji {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s ease;
+}
+
+.landing-category-box:hover .landing-category-emoji {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.landing-category-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--landing-text-dark);
+    margin-bottom: 0.75rem;
+}
+
+.landing-category-info {
+    color: var(--landing-text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.landing-category-count {
+    display: inline-block;
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* ===============================================
+   CTA SECTION - LANDING CTA
+   =============================================== */
+.landing-cta-wrapper {
+    padding: 5rem 0;
+    background: var(--landing-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.landing-cta-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    top: -300px;
+    right: -200px;
+}
+
+.landing-cta-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+.landing-cta-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+}
+
+.landing-cta-message {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.95;
+}
+
+/* ===============================================
+   FOOTER - LANDING FOOTER
+   =============================================== */
+.landing-footer-wrapper {
+    background: #1a1d2e;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 4rem 0 2rem;
+}
+
+.landing-footer-brand-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.landing-footer-heading {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.landing-footer-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.landing-footer-menu li {
+    margin-bottom: 0.75rem;
+}
+
+.landing-footer-menu a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.landing-footer-menu a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+.landing-footer-bottom-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 3rem;
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.landing-social-icons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.landing-social-item {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.landing-social-item:hover {
+    background: var(--landing-primary);
+    transform: translateY(-3px);
+    color: white;
+}
+
+/* ===============================================
+   ANIMATIONS
+   =============================================== */
+@keyframes landing-slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes landing-slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes landing-slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes landing-slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================================
+   RESPONSIVE DESIGN
+   =============================================== */
+@media (max-width: 992px) {
+    .landing-hero-title {
+        font-size: 3rem;
+    }
+    .landing-hero-subtitle {
+        font-size: 1.1rem;
+    }
+    .landing-section-main-title {
+        font-size: 2rem;
+    }
+    .landing-cta-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .landing-hero-section {
+        min-height: auto;
+        padding: 6rem 0 4rem;
+    }
+    .landing-hero-title {
+        font-size: 2.5rem;
+    }
+    .landing-hero-subtitle {
+        font-size: 1rem;
+    }
+    .landing-hero-buttons {
+        flex-direction: column;
+    }
+    .landing-btn-primary,
+    .landing-btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+    .landing-stat-value {
+        font-size: 2rem;
+    }
+    .landing-section-main-title {
+        font-size: 1.75rem;
+    }
+    .landing-feature-box,
+    .landing-category-box {
+        margin-bottom: 1.5rem;
+    }
+    .landing-cta-title {
+        font-size: 1.8rem;
+    }
+    .landing-cta-message {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .landing-hero-title {
+        font-size: 2rem;
+    }
+    .landing-brand {
+        font-size: 1.3rem;
+    }
+}
