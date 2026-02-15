@@ -1,9 +1,12 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "rohit123";
-$database = "idiscuss"; 
+$conn = mysqli_connect(
+    "localhost",
+    "u211243069_rohit",
+    "YOUR_PASSWORD",
+    "u211243069_idiscuss"
+);
 
-$conn = mysqli_connect($servername, $username, $password, $database);
-
+if (!$conn){
+    die("Connection failed: " . mysqli_connect_error());
+}
 ?>
